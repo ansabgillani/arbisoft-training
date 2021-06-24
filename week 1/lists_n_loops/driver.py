@@ -1,7 +1,14 @@
-import index_search as test
 import time
-import matplotlib.pyplot as plt
 import random as rnd
+
+import matplotlib.pyplot as plt
+
+from index_search import \
+    search_key_while, \
+    search_key_enumerate, \
+    search_key_listed_for, \
+    search_key_ranged_for, \
+    search_key_comprehension
 
 if __name__ == "__main__":
 
@@ -16,56 +23,49 @@ if __name__ == "__main__":
         key = int(input("Enter the number "
                         "you want to search : "))
 
-        # Calculating Execution of first loop
-        start = time.time()
-        test.search_key_first(nums, key=key)
-        end = time.time()
-        first_exec_time = end - start
-        print(f"Time taken to for the "
-              f"first loop : {first_exec_time}")
+        def calculate_execution_time(function):
+            start = time.time()
+            function(nums, key)
+            end = time.time()
+            execution_time = end - start
+            return execution_time
 
-        # Calculating Execution of second loop
-        start = time.time()
-        test.search_key_second(nums, key=key)
-        end = time.time()
-        second_exec_time = end - start
-        print(f"Time taken to for the "
-              f"second loop : {second_exec_time}")
 
-        # Calculating Execution of third loop
-        start = time.time()
-        test.search_key_third(nums, key=key)
-        end = time.time()
-        third_execution_time = end - start
+        # Calculating Execution of while loop
+        while_exec_time = calculate_execution_time(search_key_while)
         print(f"Time taken to for the "
-              f"third loop : {third_execution_time}")
+              f"while loop : {while_exec_time}")
 
-        # Calculating Execution of fourth loop
-        start = time.time()
-        test.search_key_fourth(nums, key=key)
-        end = time.time()
-        fourth_execution_time = end - start
+        # Calculating Execution of enumerate loop
+        enumerate_exec_time = calculate_execution_time(search_key_enumerate)
         print(f"Time taken to for the "
-              f"fourth loop : {fourth_execution_time}")
+              f"enumerate loop : {enumerate_exec_time}")
 
-        # Calculating Execution of list comprehension
-        start = time.time()
-        test.search_key_fifth(nums, key=key)
-        end = time.time()
-        fifth_execution_time = end - start
+        # Calculating Execution of listed for loop
+        for_exec_time = calculate_execution_time(search_key_listed_for)
         print(f"Time taken to for the "
-              f"fifth loop : {fifth_execution_time}")
+              f"listed for loop : {for_exec_time}")
 
-        x_axis = ['Ranged for',
-                  'While',
-                  'Listed for',
-                  'Enumerated',
+        # Calculating Execution of ranged for loop
+        range_exec_time = calculate_execution_time(search_key_ranged_for)
+        print(f"Time taken to for the "
+              f"ranged for loop : {range_exec_time}")
+
+        # Calculating Execution of while loop
+        comprehension_exec_time = calculate_execution_time(search_key_comprehension)
+        print(f"Time taken to for the "
+              f"list comprehension : {comprehension_exec_time}")
+
+        x_axis = ['While',
+                  'Enumerate',
+                  'Listed For',
+                  'Range',
                   'List Comprehension']
-        y_axis = [first_exec_time,
-                  second_exec_time,
-                  third_execution_time,
-                  fourth_execution_time,
-                  fifth_execution_time]
+        y_axis = [while_exec_time,
+                  enumerate_exec_time,
+                  for_exec_time,
+                  range_exec_time,
+                  comprehension_exec_time]
 
         plt.title(f'Input Size: {size_n}')
         plt.bar(x_axis, y_axis)

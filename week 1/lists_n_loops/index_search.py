@@ -4,7 +4,7 @@ Functions do same thing but with different looping mechanism.
 """
 
 
-def search_key_first(nums: list[int], key: int) -> list[int]:
+def search_key_ranged_for(nums: list[int], key: int) -> list[int]:
     """
     Traversal with a ranged for loop
     :param nums: list of integers
@@ -14,12 +14,12 @@ def search_key_first(nums: list[int], key: int) -> list[int]:
     indexes = []
 
     for i in range(len(nums)):
-        if nums[i] is key:
+        if nums[i] == key:
             indexes.append(i)
     return indexes
 
 
-def search_key_second(nums: list[int], key: int) -> list[int]:
+def search_key_while(nums: list[int], key: int) -> list[int]:
     """
     Traversal with a standard list while loop
     :param nums: list of integers
@@ -31,13 +31,13 @@ def search_key_second(nums: list[int], key: int) -> list[int]:
     i = 0
 
     while i < length:
-        if nums[i] is key:
+        if nums[i] == key:
             indexes.append(i)
         i += 1
     return indexes
 
 
-def search_key_third(nums: list[int], key: int) -> list[int]:
+def search_key_listed_for(nums: list[int], key: int) -> list[int]:
     """
     Traversal with a standard list for loop
     :param nums: list of integers
@@ -48,13 +48,13 @@ def search_key_third(nums: list[int], key: int) -> list[int]:
     i = 0
 
     for num in nums:
-        if num is key:
+        if num == key:
             indexes.append(i)
         i += 1
     return indexes
 
 
-def search_key_fourth(nums: list[int], key: int) -> list[int]:
+def search_key_enumerate(nums: list[int], key: int) -> list[int]:
     """
     Traversal with the enumerate loop
     :param nums: list of integers
@@ -64,16 +64,16 @@ def search_key_fourth(nums: list[int], key: int) -> list[int]:
     indexes = []
 
     for index, num in enumerate(nums):
-        if num is key:
+        if num == key:
             indexes.append(index)
     return indexes
 
 
-def search_key_fifth(nums: list[int], key: int) -> list[int]:
+def search_key_comprehension(nums: list[int], key: int) -> list[int]:
     """
     Traversal with the List comprehension
     :param nums: list of integers
     :param key: integer to search for
     :return: all indexes of the key
     """
-    return [x for x, y in enumerate(nums) if key is y]
+    return [x for x, y in enumerate(nums) if key == y]

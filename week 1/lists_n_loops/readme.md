@@ -1,4 +1,4 @@
-"""Python lists can be iterated through different means, which include but not limited to:
+Python lists can be iterated through different means, which include but not limited to:
 
 -> simple for loop
 -> for loop with range
@@ -20,4 +20,3 @@ Script requirements:
 -> Some operations should be performed on each element of the list. That operation can be mutable/immutable.
 -> Don't print the items of the list during iteration. That can impact the execution time.
 -> Use pep8 conventions when writing the code.
-"""
