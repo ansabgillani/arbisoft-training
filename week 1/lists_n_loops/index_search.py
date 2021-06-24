@@ -67,3 +67,13 @@ def search_key_fourth(nums: list[int], key: int) -> list[int]:
         if num is key:
             indexes.append(index)
     return indexes
+
+
+def search_key_fifth(nums: list[int], key: int) -> list[int]:
+    """
+    Traversal with the List comprehension
+    :param nums: list of integers
+    :param key: integer to search for
+    :return: all indexes of the key
+    """
+    return [x for x, y in enumerate(nums) if key is y]
