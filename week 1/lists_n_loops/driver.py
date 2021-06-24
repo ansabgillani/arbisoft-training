@@ -3,14 +3,22 @@ import random as rnd
 
 import matplotlib.pyplot as plt
 
-from index_search import \
-    search_key_while, \
-    search_key_enumerate, \
-    search_key_listed_for, \
-    search_key_ranged_for, \
+from index_search import (
+    search_key_while,
+    search_key_enumerate,
+    search_key_listed_for,
+    search_key_ranged_for,
     search_key_comprehension
+)
 
 if __name__ == "__main__":
+
+    def calculate_execution_time(function):
+        start = time.time()
+        function(nums, key)
+        end = time.time()
+        execution_time = end - start
+        return execution_time
 
     while True:
 
@@ -22,14 +30,6 @@ if __name__ == "__main__":
         # Asking for the key to be searched
         key = int(input("Enter the number "
                         "you want to search : "))
-
-        def calculate_execution_time(function):
-            start = time.time()
-            function(nums, key)
-            end = time.time()
-            execution_time = end - start
-            return execution_time
-
 
         # Calculating Execution of while loop
         while_exec_time = calculate_execution_time(search_key_while)
